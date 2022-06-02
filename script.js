@@ -14,31 +14,40 @@ var finalPass = [];
 // Functions the button "generate button"
 function randomNumberGen(array) {
   var randomIndex = Math.floor(Math.random() * array.length);
-  var randomElement = array[randomIndex]
-  return randomElement
+  var randomElement = array[randomIndex];
+  return randomElement;
 }
 
-function generatePassword(length, includeUppercase, includeLowercase, includeSpecial, includeNumber) {
+function generatePassword(
+  length,
+  includeUppercase,
+  includeLowercase,
+  includeSpecial,
+  includeNumber
+) {
   var length = prompt(
     "Please enter a length for your password between 8 - 128  characters."
   );
 
-  if (length === NaN || length === "") {
-    console.log("undefined"); 
-  // my variables = confirm windows
-  var includeUppercase = confirm(
-    "Do you want your password to contain upper case letters?"
-  );
+  if (length === NaN || length === "" || length < 8 || length > 128) {
+    alert("please enter a valid response");
+  } else {
+    var includeUppercase = confirm(
+      "Do you want your password to contain upper case letters?"
+    );
 
-  var includeLowercase = confirm(
-    "Do you want your password to contain lower case letters?"
-  );
+    var includeLowercase = confirm(
+      "Do you want your password to contain lower case letters?"
+    );
 
-  var includeSpecial = confirm(
-    "Do you want your password to contain special characters?"
-  );
+    var includeSpecial = confirm(
+      "Do you want your password to contain special characters?"
+    );
 
-  var includeNumber = confirm("Do you want your password to contain numbers?");
+    var includeNumber = confirm(
+      "Do you want your password to contain numbers?"
+    );
+  }
 
   if (
     includeUppercase === false &&
@@ -46,7 +55,8 @@ function generatePassword(length, includeUppercase, includeLowercase, includeSpe
     includeSpecial === false &&
     includeNumber === false
   ) {
-  } 
+    alert("Please select");
+  }
 
   var chosenCharactersArray = [];
   //console.log(chosenCharactersArray);
@@ -70,19 +80,19 @@ function generatePassword(length, includeUppercase, includeLowercase, includeSpe
   console.log(chosenCharactersArray);
 
   for (var i = 0; i < length; i++) {
-    finalPass.push(randomNumberGen(chosenCharactersArray))
+    finalPass.push(randomNumberGen(chosenCharactersArray));
   }
 
-    return finalPass.join("")
+  return finalPass.join("");
 }
 
-console.log(generatePassword);
+// console.log(generatePassword);
 
 generateBtn.addEventListener("click", writePassword);
 // write password function //
-function writePassword(){
+function writePassword() {
+  console.log("here I am ");
   var password = generatePassword();
   var passwordText = document.getElementById("password");
   passwordText.value = password;
-};
 }
