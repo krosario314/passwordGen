@@ -1,19 +1,47 @@
 //
 // GLOBAL VARIABLES
-//
+//* I added global variables here */
+
+var specialCharacterString = "!@#$%^&*()";
+var numericCharacterString = "0123456789";
+var upperCharacterString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCharacterString = "abcdefghijklmnopqrstuvwxyz";
+var finalPassword = document.getElementById("password");
+
 
 // Create an array of special characters and store to a variable
+//* Here I am creating the arrays */
+
+var specialCharactersArray = specialCharacterString.split("");
 
 // Create an array of numeric charecters and store it to a variable
 
+var numericCharacterArray = numericCharacterString.split("");
+
 // Create an array of uppercase characters and store it to a variable
 
-// Ccreate an array of lowercase characters and store it to a variable
+var upperCharacterArray = upperCharacterString.split("");
+
+// Create an array of lowercase characters and store it to a variable
+
+var lowerCharacterArray = lowerCharacterString.split("");
+
+
 
 // ==========================================
 // Function to get options from user input
 // ==========================================
-// Store the length of password from user input to a variable and convert it to an interger
+
+function generatingPassword() {
+  // Store the length of password from user input to a variable and convert it to an interger
+  var characterLength = prompt(
+    "How many characters should your password contain? (8-128)"
+  );
+}
+
+
+
+
 
 // Store the confirmation to include special characters from user input to a variable
 
@@ -65,16 +93,16 @@
 // Return the converted password string to the caller
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+// // Get references to the #generate element
+// var generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
-}
+//   passwordText.value = password;
+// }
 
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+// // Add event listener to generate button
+// generateBtn.addEventListener('click', writePassword);

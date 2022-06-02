@@ -1,46 +1,88 @@
-// Assignment Code
+// Assignment code
+// my variables
+var upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
+var specialChString = "!@#$%^&*()";
+var numberChString = "0123456789";
+var upperCaseArray = upperCaseString.split("");
+var lowerCaseArray = lowerCaseString.split("");
+var specialArray = specialChString.split("");
+var numberArray = numberChString.split("");
 var generateBtn = document.querySelector("#generate");
-var userResponse = "  ";
-var amountCh = document.getElementById("amountCh")
-var lowercase = arrayFromHighToLow(65, 90);
-var upperCase = arrayFromHighToLow(97, 122);
-var specialCh = arrayFromHighToLow(33, 47).concat(arrayFromHighToLow(58, 64)).concat(arrayFromHighToLow(91, 96)).concat(arrayFromHighToLow(123, 126));
-var numberCh = arrayFromHighToLow(48, 57);
+var finalPass = [];
 
-
-// Write password to the #password input
-function writePassword() {
-  
-  var amountCh = window.prompt("How many characters should your password contain?");
-
-  var upperCase = window.confirm("Would you like your password to contain uppercase letters?");
-
-  var lowerCase = window.confirm("Would you like your password to contain lowercase letters?");
-  
-  var specialCh = window.confirm("Would you like your password to contain special characters?");
-
-  var numberCh = window.confirm("Would you like your password to contain numbers?"); 
+// Functions the button "generate button"
+function randomNumberGen(array) {
+  var randomIndex = Math.floor(Math.random() * array.length);
+  var randomElement = array[randomIndex]
+  return randomElement
 }
 
-  var password = function generatePassword(amountCh, upperCase,lowerCase, specialCh, numberCh) {
-    console.log(lowerCase)
+function generatePassword(length, includeUppercase, includeLowercase, includeSpecial, includeNumber) {
+  var length = prompt(
+    "Please enter a length for your password between 8 - 128  characters."
+  );
+
+  if (length === NaN || length === "") {
+    console.log("undefined"); 
+  // my variables = confirm windows
+  var includeUppercase = confirm(
+    "Do you want your password to contain upper case letters?"
+  );
+
+  var includeLowercase = confirm(
+    "Do you want your password to contain lower case letters?"
+  );
+
+  var includeSpecial = confirm(
+    "Do you want your password to contain special characters?"
+  );
+
+  var includeNumber = confirm("Do you want your password to contain numbers?");
+
+  if (
+    includeUppercase === false &&
+    includeLowercase === false &&
+    includeSpecial === false &&
+    includeNumber === false
+  ) {
+  } 
+
+  var chosenCharactersArray = [];
+  //console.log(chosenCharactersArray);
+
+  if (includeUppercase === true) {
+    chosenCharactersArray = chosenCharactersArray.concat(upperCaseArray);
   }
-  
-  function arrayFromHighToLow(low, high){
-    var array = [ ]
-    for (let i = low; i <= high; i++){
-      array.push(i)
-    }
-    return array
+
+  if (includeLowercase === true) {
+    chosenCharactersArray = chosenCharactersArray.concat(lowerCaseArray);
   }
 
-  document.write()
+  if (includeSpecial === true) {
+    chosenCharactersArray = chosenCharactersArray.concat(specialArray);
+  }
 
-  var passwordText = document.querySelector("#password");
+  if (includeNumber === true) {
+    chosenCharactersArray = chosenCharactersArray.concat(numberArray);
+  }
+  // array string
+  console.log(chosenCharactersArray);
 
+  for (var i = 0; i < length; i++) {
+    finalPass.push(randomNumberGen(chosenCharactersArray))
+  }
 
-  passwordText.value = password;
-  
+    return finalPass.join("")
+}
 
-// Add event listener to generate button
+console.log(generatePassword);
+
 generateBtn.addEventListener("click", writePassword);
+// write password function //
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.getElementById("password");
+  passwordText.value = password;
+
+}
