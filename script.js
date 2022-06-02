@@ -80,9 +80,9 @@ console.log(generatePassword);
 
 generateBtn.addEventListener("click", writePassword);
 // write password function //
-function writePassword() {
+function writePassword(){
   var password = generatePassword();
   var passwordText = document.getElementById("password");
   passwordText.value = password;
-
+};
 }
