@@ -29,5 +29,6 @@ THEN the password is either displayed in an alert or written to the page
 ```
 #
 ## Resources
-[GitHub Pages](http://pages.github.com/)
-[My GitHub Repo]()
+* [GitHub Pages](http://pages.github.com/)
+* [My GitHub Repo](https://github.com/krosario314/passwordGen)
+* [My deployed link](https://krosario314.github.io/passwordGen/)
