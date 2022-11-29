@@ -78,7 +78,7 @@ function generatePassword(
   }
   // array string
   console.log(chosenCharactersArray);
-
+    finalPass=[];
   for (var i = 0; i < length; i++) {
     finalPass.push(randomNumberGen(chosenCharactersArray));
   }
